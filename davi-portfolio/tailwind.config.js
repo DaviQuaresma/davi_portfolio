@@ -19,9 +19,12 @@ export default {
 				green_military: "#3B5323", // Verde militar
 				green_forest: "#228B22", // Verde floresta
 				yellow: "#FACC15", // Amarelo sofisticado
+				blue_elegant: "#3A7CA5", // Azul sofisticado
+				hoverGithub: "#6e5494", // Roxo do GitHub no hover
+				hoverLinkedin: "#005582" // Azul escuro do LinkedIn no hover
 			},
 			fontFamily: {
-				sans: ["Inter", "sans-serif"], // Fonte primária
+				sans: ["Lora", "serif"], // Fonte primária
 				elegant: ["Poppins", "sans-serif"], // Alternativa
 			},
 		},
