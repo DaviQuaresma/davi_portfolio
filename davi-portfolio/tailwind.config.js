@@ -8,6 +8,7 @@ export default {
 				background_light: "#F2F2F2", // Fundo branco suave
 				gray: "#94A3B8", // Cinza moderno
 				black: "#1E1E1E", // Preto acinzentado
+				red: "#7B1E1E", // vermelho
 				text_graydark: "#3D3D3D", // Cinza escuro
 				background_strong: "#F8F8F8", // Branco suave
 				green_light: "#22C55E", // Verde equilibrado
