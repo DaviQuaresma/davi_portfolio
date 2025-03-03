@@ -79,25 +79,25 @@ export default function Navbar() {
 				<p className='font-medium flex gap-2'>
 					<span
 						onClick={() => changeLanguage("ENG")}
-						className='cursor-pointer hover:text-blue_elegant'>
+						className='cursor-pointer relative transition duration-300 ease-in-out hover:text-blue_elegant before:absolute before:-bottom-1 before:left-0 before:w-0 before:h-[2px] before:bg-blue_elegant before:transition-all before:duration-300 hover:before:w-full'>
 						<strong>ENG</strong>
 					</span>
 					|
 					<span
 						onClick={() => changeLanguage("ESP")}
-						className='cursor-pointer hover:text-red'>
+						className='cursor-pointer relative transition duration-300 ease-in-out hover:text-red before:absolute before:-bottom-1 before:left-0 before:w-0 before:h-[2px] before:bg-red before:transition-all before:duration-300 hover:before:w-full'>
 						<strong>ESP</strong>
 					</span>
 					|
 					<span
 						onClick={() => changeLanguage("FRA")}
-						className='cursor-pointer hover:text-green_emerald'>
+						className='cursor-pointer relative transition duration-300 ease-in-out hover:text-green_emerald before:absolute before:-bottom-1 before:left-0 before:w-0 before:h-[2px] before:bg-green_emerald before:transition-all before:duration-300 hover:before:w-full'>
 						<strong>FRA</strong>
 					</span>
 					|
 					<span
 						onClick={() => changeLanguage("BRA")}
-						className='cursor-pointer hover:text-aws'>
+						className='cursor-pointer relative transition duration-300 ease-in-out hover:text-aws before:absolute before:-bottom-1 before:left-0 before:w-0 before:h-[2px] before:bg-aws before:transition-all before:duration-300 hover:before:w-full'>
 						<strong>BRA</strong>
 					</span>
 				</p>
