@@ -63,16 +63,21 @@ export default function Contact() {
 				<h1 className='text-4xl font-semibold text-center mb-4'>{title}</h1>
 				<p className='text-center text-gray-600 mb-6'>{message}</p>
 
-				<form className='space-y-4'>
+				<form
+					action='https://formsubmit.co/quaresma.davi@gmail.com'
+					method='POST'
+					className='space-y-4'>
 					<div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
 						<input
 							type='text'
+							name='name'
 							placeholder={name}
 							required
 							className='w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-300'
 						/>
 						<input
 							type='email'
+							name='email'
 							placeholder={email}
 							required
 							className='w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-300'
@@ -82,21 +87,25 @@ export default function Contact() {
 					<div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
 						<input
 							type='tel'
+							name='phone'
 							placeholder={phone}
 							required
 							className='w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-300'
 						/>
 						<input
 							type='text'
+							name='organization'
 							placeholder={organization}
 							className='w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-300'
 						/>
 					</div>
 
 					<textarea
+						name='message'
 						placeholder={textarea}
 						rows='5'
-						className='w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-300'></textarea>
+						className='w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-300'
+						required></textarea>
 
 					<button
 						type='submit'
