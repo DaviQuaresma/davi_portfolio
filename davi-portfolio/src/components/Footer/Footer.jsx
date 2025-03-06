@@ -1,7 +1,7 @@
 /** @format */
 
 import React from "react";
-import { Github, Linkedin } from "../Icons/Icons";
+import { Github, Linkedin, Whatsapp } from "../Icons/Icons";
 import { useLanguage } from "../../context/LanguageContext";
 
 export default function Footer() {
@@ -52,6 +52,11 @@ export default function Footer() {
 						href='https://www.linkedin.com/in/davi-quaresma/'
 						target='_blank'>
 						<Linkedin />
+					</a>
+					<a
+						href='https://wa.me/5531992850463?text=Olá%20Davi,%20vi%20seu%20portfólio%20e%20gostaria%20de%20conversar!'
+						target='_blank'>
+						<Whatsapp />
 					</a>
 				</div>
 				<div className='text-center pt-4'>

@@ -20,6 +20,7 @@ export default {
 				blue_elegant: "#3A7CA5", // Azul sofisticado
 				hoverGithub: "#6e5494", // Roxo do GitHub no hover
 				hoverLinkedin: "#005582", // Azul escuro do LinkedIn no hover
+				hoverWhatsapp: "#25D366",
 
 				// Cores das tecnologias
 				javascript: "#F7DF1E",
