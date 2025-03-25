@@ -21,6 +21,7 @@ import {
 	Sass,
 	TailwindCss,
 	Typescript,
+	Sequelize,
 } from "./Icons/Icons";
 
 // Definir as traduções fora do componente para evitar recriação desnecessária
@@ -82,12 +83,13 @@ export default function Skillset() {
 		{ name: "Sass", icon: <Sass /> },
 		{ name: "Tailwind CSS", icon: <TailwindCss /> },
 		{ name: "TypeScript", icon: <Typescript /> },
+		{ name: "Sequelize ORM", icon: <Sequelize /> },
 	];
 
 	// Embaralhar a lista de tecnologias e dividir em grupos de 6
 	const shuffledTechs = useMemo(() => {
 		const shuffled = [...techs].sort(() => Math.random() - 0.5);
-		return chunkArray(shuffled, 6);
+		return chunkArray(shuffled, 5);
 	}, [techs]);
 
 	return (
@@ -112,7 +114,12 @@ export default function Skillset() {
 						key={rowIndex}
 						className='flex justify-center gap-16'>
 						{row.map((tech, index) => (
-							<li key={index}>{tech.icon}</li>
+							<li key={index} className="relative group">
+							{tech.icon}
+							<span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 rounded bg-black text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap z-10">
+								{tech.name}
+							</span>
+						</li>
 						))}
 					</ul>
 				))}

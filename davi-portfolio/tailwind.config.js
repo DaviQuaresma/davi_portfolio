@@ -41,6 +41,7 @@ export default {
 				sass: "#CC6699",
 				tailwind: "#06B6D4",
 				typescript: "#3178C6",
+				sequelize: "#03AFEF"
 			},
 			fontFamily: {
 				sans: ["Lora", "serif"], // Fonte primária
