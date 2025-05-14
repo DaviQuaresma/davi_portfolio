@@ -34,6 +34,28 @@ export default function Projects() {
 						"O Stock Manager é uma aplicação de gerenciamento de estoque desenvolvida em React, projetada para facilitar o controle de itens, exibir métricas de inventário e permitir operações de CRUD completas.",
 					imageProject: "/reactStock.png",
 				},
+				{
+					projectTitle: "ERP Local",
+					techsList: "NodeJS | ElectronJs | Bootstrap | Postgres",
+					projectResume:
+						"Este projeto foi desenvolvido para automatizar a geração de vendas em um sistema ERP legado baseado em PostgreSQL. A solução opera localmente e permite que o cliente crie vendas reais com critérios personalizados e emissão automática de NFC-e, através de uma interface moderna em Electron.js",
+					imageProject: "/project4.png",
+				},
+				{
+					projectTitle: "Dashboard Metabase",
+					techsList: "NodeJS | PostgresSQL | ExpressJS | Metabase | Hetzner",
+					projectResume:
+						"Este projeto foi desenvolvido e implementado diretamente na startup GuruKiller, com o objetivo de automatizar a coleta e análise do faturamento e status das assinaturas. A solução integra a API oficial da plataforma GuruManager a um ecossistema completo envolvendo Node.js, PostgreSQL, API intermediadora e dashboards dinâmicos no Metabase.",
+					imageProject: "/project5.png",
+				},
+				{
+					projectTitle: "Gerador de Carroseis",
+					techsList:
+						"NodeJS | WebScraping | OpenIA | SMTP (Nodemailer) | Hetzner",
+					projectResume:
+						"Desenvolvi uma solução completa que gera conteúdos visuais prontos para redes sociais, com base em notícias reais extraídas de sites. A entrega foi um sistema 100% automatizado com scraping, geração de imagem e envio por e-mail.",
+					imageProject: "/project6.png",
+				},
 			],
 		},
 		ENG: {
@@ -61,6 +83,28 @@ export default function Projects() {
 					projectResume:
 						"Stock Manager is an inventory management application developed in React, designed to facilitate item control, display inventory metrics, and allow complete CRUD operations.",
 					imageProject: "/reactStock.png",
+				},
+				{
+					projectTitle: "ERP Local",
+					techsList: "NodeJS | ElectronJs | Bootstrap | Postgres",
+					projectResume:
+						"This project was developed to automate sales generation in a legacy ERP system based on PostgreSQL. The solution runs locally and allows the client to create real sales with custom criteria and automatic NFC-e issuance, through a modern interface built in Electron.js.",
+					imageProject: "/project4.png",
+				},
+				{
+					projectTitle: "Metabase Dashboard",
+					techsList: "NodeJS | PostgresSQL | ExpressJS | Metabase | Hetzner",
+					projectResume:
+						"This project was developed and implemented directly at the startup GuruKiller to automate revenue tracking and subscription status analysis. The solution integrates the official API of the GuruManager platform into a complete ecosystem involving Node.js, PostgreSQL, an intermediary API, and dynamic dashboards in Metabase.",
+					imageProject: "/project5.png",
+				},
+				{
+					projectTitle: "Carousel Generator",
+					techsList:
+						"NodeJS | WebScraping | OpenAI | SMTP (Nodemailer) | Hetzner",
+					projectResume:
+						"I developed a complete solution that generates ready-to-post visual content for social media, based on real news extracted from websites. The final delivery was a 100% automated system with scraping, image generation, and email sending.",
+					imageProject: "/project6.png",
 				},
 			],
 		},
@@ -90,6 +134,28 @@ export default function Projects() {
 						"Stock Manager est une application de gestion des stocks développée en React, conçue pour faciliter le contrôle des articles, afficher les métriques d'inventaire et permettre des opérations CRUD complètes.",
 					imageProject: "/reactStock.png",
 				},
+				{
+					projectTitle: "ERP Local",
+					techsList: "NodeJS | ElectronJs | Bootstrap | Postgres",
+					projectResume:
+						"Ce projet a été développé pour automatiser la génération de ventes dans un système ERP hérité basé sur PostgreSQL. La solution fonctionne localement et permet au client de créer de véritables ventes avec des critères personnalisés et l’émission automatique de la NFC-e, via une interface moderne construite avec Electron.js.",
+					imageProject: "/project4.png",
+				},
+				{
+					projectTitle: "Tableau de bord Metabase",
+					techsList: "NodeJS | PostgresSQL | ExpressJS | Metabase | Hetzner",
+					projectResume:
+						"Ce projet a été développé et mis en œuvre directement dans la startup GuruKiller pour automatiser le suivi du chiffre d'affaires et l’analyse des abonnements. La solution intègre l’API officielle de la plateforme GuruManager dans un écosystème complet avec Node.js, PostgreSQL, une API intermédiaire et des tableaux de bord dynamiques dans Metabase.",
+					imageProject: "/project5.png",
+				},
+				{
+					projectTitle: "Générateur de Carrousels",
+					techsList:
+						"NodeJS | WebScraping | OpenIA | SMTP (Nodemailer) | Hetzner",
+					projectResume:
+						"J’ai développé une solution complète qui génère du contenu visuel prêt à être publié sur les réseaux sociaux, basé sur des actualités réelles extraites de sites web. Le livrable final était un système 100% automatisé avec scraping, génération d’images et envoi par e-mail.",
+					imageProject: "/project6.png",
+				},
 			],
 		},
 		ESP: {
@@ -117,6 +183,28 @@ export default function Projects() {
 					projectResume:
 						"Stock Manager es una aplicación de gestión de inventarios desarrollada en React, diseñada para facilitar el control de artículos, mostrar métricas de inventario y permitir operaciones CRUD completas.",
 					imageProject: "/reactStock.png",
+				},
+				{
+					projectTitle: "ERP Local",
+					techsList: "NodeJS | ElectronJs | Bootstrap | Postgres",
+					projectResume:
+						"Este proyecto fue desarrollado para automatizar la generación de ventas en un sistema ERP heredado basado en PostgreSQL. La solución funciona localmente y permite al cliente crear ventas reales con criterios personalizados y emisión automática de NFC-e, a través de una interfaz moderna construida en Electron.js.",
+					imageProject: "/project4.png",
+				},
+				{
+					projectTitle: "Dashboard Metabase",
+					techsList: "NodeJS | PostgresSQL | ExpressJS | Metabase | Hetzner",
+					projectResume:
+						"Este proyecto fue desarrollado e implementado directamente en la startup GuruKiller para automatizar el seguimiento de ingresos y el estado de las suscripciones. La solución integra la API oficial de la plataforma GuruManager a un ecosistema completo que involucra Node.js, PostgreSQL, una API intermediaria y dashboards dinámicos en Metabase.",
+					imageProject: "/project5.png",
+				},
+				{
+					projectTitle: "Generador de Carruseles",
+					techsList:
+						"NodeJS | WebScraping | OpenIA | SMTP (Nodemailer) | Hetzner",
+					projectResume:
+						"Desarrollé una solución completa que genera contenido visual listo para publicar en redes sociales, basado en noticias reales extraídas de sitios web. La entrega fue un sistema 100% automatizado con scraping, generación de imágenes y envío por correo electrónico.",
+					imageProject: "/project6.png",
 				},
 			],
 		},
