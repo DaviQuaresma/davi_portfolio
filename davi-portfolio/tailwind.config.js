@@ -41,11 +41,16 @@ export default {
 				sass: "#CC6699",
 				tailwind: "#06B6D4",
 				typescript: "#3178C6",
-				sequelize: "#03AFEF"
+				sequelize: "#03AFEF",
+				php: "#777BB4",
+				nestjs: "#E0234E",
+				redis: "#DC382D",
+				codeigniter: "#EF4223",
+				laravel: "#FF2D20",
 			},
 			fontFamily: {
-				sans: ["Lora", "serif"], // Fonte primária
-				elegant: ["Poppins", "sans-serif"], // Alternativa
+				sans: ["Lora", "serif"],
+				elegant: ["Poppins", "sans-serif"],
 			},
 		},
 	},

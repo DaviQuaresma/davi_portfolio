@@ -1,13 +1,9 @@
-/** @format */
-
-import React from "react";
 import { Github, Linkedin, Whatsapp } from "../Icons/Icons";
 import { useLanguage } from "../../context/LanguageContext";
 
 export default function Footer() {
 	const { language } = useLanguage();
 
-	// Traduções
 	const translations = {
 		BRA: {
 			createdWith: "Criado com",
@@ -35,7 +31,6 @@ export default function Footer() {
 		},
 	};
 
-	// Seleciona as traduções baseadas no idioma atual
 	const { createdWith, technologies, version, rightsReserved } =
 		translations[language];
 

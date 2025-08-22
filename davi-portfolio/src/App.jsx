@@ -1,6 +1,3 @@
-/** @format */
-
-import React from "react";
 import Navbar from "../src/components/Navbar";
 import MiddleContent from "./components/MiddleContent/MiddleContent";
 import Skillset from "./components/Skillset";

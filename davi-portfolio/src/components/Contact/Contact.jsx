@@ -1,12 +1,8 @@
-/** @format */
-
-import React from "react";
 import { useLanguage } from "../../context/LanguageContext";
 
 export default function Contact() {
 	const { language } = useLanguage();
 
-	// Traduções
 	const translations = {
 		BRA: {
 			title: "Contato",

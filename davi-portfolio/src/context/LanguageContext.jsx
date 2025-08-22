@@ -1,14 +1,9 @@
-/** @format */
-
-// src/context/LanguageContext.js
 import React, { createContext, useState, useContext } from "react";
 
-// Criando o contexto
 const LanguageContext = createContext();
 
-// Provider para envolver a aplicação
 export const LanguageProvider = ({ children }) => {
-	const [language, setLanguage] = useState("BRA"); // Idioma padrão
+	const [language, setLanguage] = useState("BRA");
 
 	const changeLanguage = (lang) => {
 		setLanguage(lang);
@@ -21,7 +16,6 @@ export const LanguageProvider = ({ children }) => {
 	);
 };
 
-// Hook para acessar o contexto
 export const useLanguage = () => {
 	return useContext(LanguageContext);
 };

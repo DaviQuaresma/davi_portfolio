@@ -1,6 +1,3 @@
-/** @format */
-
-import React from "react";
 import ButtonWhite from "../Buttons/ButtonWhite/Button";
 import ButtonDark from "../Buttons/ButtonDark/Button";
 import { useLanguage } from "../../context/LanguageContext";
@@ -8,7 +5,6 @@ import { useLanguage } from "../../context/LanguageContext";
 export default function MiddleContent() {
 	const { language } = useLanguage();
 
-	// Traduções
 	const translations = {
 		BRA: {
 			greeting: "Olá, Sou Davi Quaresma e sou um",
@@ -53,7 +49,6 @@ export default function MiddleContent() {
 		},
 	};
 
-	// Seleciona o idioma atual
 	const { greeting, role, description, contact, projects } =
 		translations[language];
 

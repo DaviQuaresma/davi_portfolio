@@ -1,5 +1,3 @@
-/** @format */
-
 export default function ButtonDark({ buttonText }) {
 	return (
 		<button className='

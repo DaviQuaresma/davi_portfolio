@@ -1,5 +1,3 @@
-/** @format */
-
 import { useMemo } from "react";
 import { useLanguage } from "../context/LanguageContext";
 import {
@@ -7,14 +5,12 @@ import {
 	Aws,
 	Bootstrap,
 	Docker,
-	Figma,
 	Java,
 	MongoDB,
 	Mysql,
 	Nextjs,
 	NodeJs,
 	Postgres,
-	PowerBI,
 	PrismaOrm,
 	Python,
 	ReactIcon,
@@ -22,9 +18,13 @@ import {
 	TailwindCss,
 	Typescript,
 	Sequelize,
+	Php,
+	Nestjs,
+	Redis,
+	Codeigniter,
+	Laravel,
 } from "./Icons/Icons";
 
-// Definir as traduções fora do componente para evitar recriação desnecessária
 const translations = {
 	ENG: {
 		skillsetTitle: "Skillset",
@@ -52,7 +52,6 @@ const translations = {
 	},
 };
 
-// Função utilitária para dividir o array em grupos de 6 itens
 const chunkArray = (array, size) => {
 	return array.reduce((result, item, index) => {
 		if (index % size === 0) result.push([]);
@@ -62,21 +61,19 @@ const chunkArray = (array, size) => {
 };
 
 export default function Skillset() {
-	const { language } = useLanguage(); // Obtendo o idioma atual
+	const { language } = useLanguage();
 
 	const techs = [
 		{ name: "JavaScript", icon: <JavaScript /> },
 		{ name: "AWS", icon: <Aws /> },
 		{ name: "Bootstrap", icon: <Bootstrap /> },
 		{ name: "Docker", icon: <Docker /> },
-		{ name: "Figma", icon: <Figma /> },
 		{ name: "Java", icon: <Java /> },
 		{ name: "MongoDB", icon: <MongoDB /> },
 		{ name: "MySQL", icon: <Mysql /> },
 		{ name: "Next.js", icon: <Nextjs /> },
 		{ name: "Node.js", icon: <NodeJs /> },
 		{ name: "PostgreSQL", icon: <Postgres /> },
-		{ name: "Power BI", icon: <PowerBI /> },
 		{ name: "Prisma ORM", icon: <PrismaOrm /> },
 		{ name: "Python", icon: <Python /> },
 		{ name: "React", icon: <ReactIcon /> },
@@ -84,9 +81,13 @@ export default function Skillset() {
 		{ name: "Tailwind CSS", icon: <TailwindCss /> },
 		{ name: "TypeScript", icon: <Typescript /> },
 		{ name: "Sequelize ORM", icon: <Sequelize /> },
+		{ name: "PHP", icon: <Php /> },
+		{ name: "NestJS", icon: <Nestjs /> },
+		{ name: "Redis", icon: <Redis /> },
+		{ name: "CodeIgniter", icon: <Codeigniter /> },
+		{ name: "Laravel", icon: <Laravel /> },
 	];
 
-	// Embaralhar a lista de tecnologias e dividir em grupos de 6
 	const shuffledTechs = useMemo(() => {
 		const shuffled = [...techs].sort(() => Math.random() - 0.5);
 		return chunkArray(shuffled, 5);

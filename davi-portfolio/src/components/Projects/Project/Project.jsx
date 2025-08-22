@@ -1,7 +1,3 @@
-/** @format */
-
-import React from "react";
-
 export default function Project({
 	projectTitle,
 	techsList,

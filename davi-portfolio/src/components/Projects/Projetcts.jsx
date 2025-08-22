@@ -1,6 +1,3 @@
-/** @format */
-
-import React from "react";
 import Project from "./Project/Project";
 import { useLanguage } from "../../context/LanguageContext";
 

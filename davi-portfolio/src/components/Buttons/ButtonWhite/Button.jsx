@@ -1,5 +1,3 @@
-/** @format */
-
 export default function ButtonWhite({ buttonText }) {
 	return (
 		<button

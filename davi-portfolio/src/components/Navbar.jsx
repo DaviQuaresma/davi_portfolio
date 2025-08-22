@@ -1,13 +1,9 @@
-/** @format */
-
-import React from "react";
 import { Github, Linkedin, Whatsapp } from "./Icons/Icons";
-import { useLanguage } from "../context/LanguageContext"; // Importando o contexto
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Navbar() {
-	const { language, changeLanguage } = useLanguage(); // Obtendo idioma e função de troca
+	const { language, changeLanguage } = useLanguage();
 
-	// Definição das traduções
 	const translations = {
 		ENG: {
 			intro: "Intro",
@@ -35,7 +31,6 @@ export default function Navbar() {
 		},
 	};
 
-	// Pega os textos do idioma atual ou usa "ENG" como padrão
 	const t = translations[language] || translations.ENG;
 
 	const scrollToSection = (id) => {
