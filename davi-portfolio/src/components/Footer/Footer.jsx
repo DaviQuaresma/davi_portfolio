@@ -8,25 +8,25 @@ export default function Footer() {
 		BRA: {
 			createdWith: "Criado com",
 			technologies: "React & TailwindCSS",
-			version: "@ 2025 Davi Quaresma - DevPortfolio v1.0",
+			version: "@ 2025 Davi Quaresma - DevPortfolio v1.4",
 			rightsReserved: "Todos os direitos reservados",
 		},
 		ENG: {
 			createdWith: "Created with",
 			technologies: "React & TailwindCSS",
-			version: "@ 2025 Davi Quaresma - DevPortfolio v1.0",
+			version: "@ 2025 Davi Quaresma - DevPortfolio v1.4",
 			rightsReserved: "All rights reserved",
 		},
 		ESP: {
 			createdWith: "Creado con",
 			technologies: "React & TailwindCSS",
-			version: "@ 2025 Davi Quaresma - DevPortfolio v1.0",
+			version: "@ 2025 Davi Quaresma - DevPortfolio v1.4",
 			rightsReserved: "Todos los derechos reservados",
 		},
 		FRA: {
 			createdWith: "Créé avec",
 			technologies: "React & TailwindCSS",
-			version: "@ 2025 Davi Quaresma - DevPortfolio v1.0",
+			version: "@ 2025 Davi Quaresma - DevPortfolio v1.4",
 			rightsReserved: "Tous les droits réservés",
 		},
 	};

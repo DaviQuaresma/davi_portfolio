@@ -25,6 +25,7 @@ import {
   FaPython,
   FaSass,
   FaWhatsapp,
+  FaAngular,
 } from "react-icons/fa";
 import { RiNextjsFill } from "react-icons/ri";
 
@@ -225,5 +226,13 @@ export const Redis = () => (
     size={50}
     className="w-12 cursor-pointer fill-current text-text_graydark hover:text-nestjs transition-all duration-300 ease-in-out hover:scale-110 hover:brightness-125"
     aria-label="NestJS"
+  />
+);
+
+export const Angular = () => (
+  <FaAngular
+    size={50}
+    className="w-12 cursor-pointer fill-current text-text_graydark hover:text-angular transition-all duration-300 ease-in-out hover:scale-110 hover:brightness-125"
+    aria-label="Angular"
   />
 );

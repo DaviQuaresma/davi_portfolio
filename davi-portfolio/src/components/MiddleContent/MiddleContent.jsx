@@ -1,5 +1,3 @@
-import ButtonWhite from "../Buttons/ButtonWhite/Button";
-import ButtonDark from "../Buttons/ButtonDark/Button";
 import { useLanguage } from "../../context/LanguageContext";
 
 export default function MiddleContent() {
@@ -49,7 +47,7 @@ export default function MiddleContent() {
 		},
 	};
 
-	const { greeting, role, description, contact, projects } =
+	const { greeting, role, description} =
 		translations[language];
 
 	const formattedDescription = description.replace(/\n/g, "<br />");
@@ -73,11 +71,6 @@ export default function MiddleContent() {
 						className='text-base font-elegant'
 						dangerouslySetInnerHTML={{ __html: formattedDescription }}
 					/>
-
-					<div className='flex gap-4'>
-						<ButtonDark buttonText={contact} />
-						<ButtonWhite buttonText={projects} />
-					</div>
 				</div>
 			</div>
 		</>

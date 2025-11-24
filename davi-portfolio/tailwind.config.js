@@ -47,6 +47,7 @@ export default {
 				redis: "#DC382D",
 				codeigniter: "#EF4223",
 				laravel: "#FF2D20",
+				angular: "#DD0031",
 			},
 			fontFamily: {
 				sans: ["Lora", "serif"],

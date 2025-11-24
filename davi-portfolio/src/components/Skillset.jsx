@@ -23,6 +23,7 @@ import {
 	Redis,
 	Codeigniter,
 	Laravel,
+	Angular,
 } from "./Icons/Icons";
 
 const translations = {
@@ -63,35 +64,35 @@ const chunkArray = (array, size) => {
 export default function Skillset() {
 	const { language } = useLanguage();
 
-	const techs = [
-		{ name: "JavaScript", icon: <JavaScript /> },
-		{ name: "AWS", icon: <Aws /> },
-		{ name: "Bootstrap", icon: <Bootstrap /> },
-		{ name: "Docker", icon: <Docker /> },
-		{ name: "Java", icon: <Java /> },
-		{ name: "MongoDB", icon: <MongoDB /> },
-		{ name: "MySQL", icon: <Mysql /> },
-		{ name: "Next.js", icon: <Nextjs /> },
-		{ name: "Node.js", icon: <NodeJs /> },
-		{ name: "PostgreSQL", icon: <Postgres /> },
-		{ name: "Prisma ORM", icon: <PrismaOrm /> },
-		{ name: "Python", icon: <Python /> },
-		{ name: "React", icon: <ReactIcon /> },
-		{ name: "Sass", icon: <Sass /> },
-		{ name: "Tailwind CSS", icon: <TailwindCss /> },
-		{ name: "TypeScript", icon: <Typescript /> },
-		{ name: "Sequelize ORM", icon: <Sequelize /> },
-		{ name: "PHP", icon: <Php /> },
-		{ name: "NestJS", icon: <Nestjs /> },
-		{ name: "Redis", icon: <Redis /> },
-		{ name: "CodeIgniter", icon: <Codeigniter /> },
-		{ name: "Laravel", icon: <Laravel /> },
-	];
-
 	const shuffledTechs = useMemo(() => {
+		const techs = [
+			{ name: "JavaScript", icon: <JavaScript /> },
+			{ name: "AWS", icon: <Aws /> },
+			{ name: "Bootstrap", icon: <Bootstrap /> },
+			{ name: "Docker", icon: <Docker /> },
+			{ name: "Java", icon: <Java /> },
+			{ name: "MongoDB", icon: <MongoDB /> },
+			{ name: "MySQL", icon: <Mysql /> },
+			{ name: "Next.js", icon: <Nextjs /> },
+			{ name: "Node.js", icon: <NodeJs /> },
+			{ name: "PostgreSQL", icon: <Postgres /> },
+			{ name: "Prisma ORM", icon: <PrismaOrm /> },
+			{ name: "Python", icon: <Python /> },
+			{ name: "React", icon: <ReactIcon /> },
+			{ name: "Sass", icon: <Sass /> },
+			{ name: "Tailwind CSS", icon: <TailwindCss /> },
+			{ name: "TypeScript", icon: <Typescript /> },
+			{ name: "Sequelize ORM", icon: <Sequelize /> },
+			{ name: "PHP", icon: <Php /> },
+			{ name: "NestJS", icon: <Nestjs /> },
+			{ name: "Redis", icon: <Redis /> },
+			{ name: "CodeIgniter", icon: <Codeigniter /> },
+			{ name: "Laravel", icon: <Laravel /> },
+			{ name: "Angular", icon: <Angular /> },
+		];
 		const shuffled = [...techs].sort(() => Math.random() - 0.5);
 		return chunkArray(shuffled, 5);
-	}, [techs]);
+	}, []);
 
 	return (
 		<div className='grid justify-center pt-24'>
