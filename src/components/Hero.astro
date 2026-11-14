@@ -1,0 +1,63 @@
+---
+import { Image } from "astro:assets";
+import photo from "@/assets/davi.jpeg";
+import { site } from "@/data/site";
+import type { Lang } from "@/i18n/ui";
+import { getTranslator } from "@/i18n/utils";
+import Terminal from "./Terminal.astro";
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getTranslator(lang);
+---
+
+<section class="container-page grid min-h-dvh items-center gap-12 pt-24 pb-16 lg:grid-cols-[1.05fr_1fr]">
+	<div>
+		<div class="flex items-center gap-3">
+			<Image
+				src={photo}
+				alt={site.name}
+				width={96}
+				height={96}
+				loading="eager"
+				class="size-12 rounded-full border border-line-strong object-cover"
+			/>
+			<div>
+				<p class="font-medium text-fg">{site.name}</p>
+				<p class="eyebrow">{t("hero.role")}</p>
+			</div>
+		</div>
+
+		<h1 class="mt-8 text-4xl leading-[1.05] font-semibold tracking-tight text-balance sm:text-5xl lg:text-6xl">
+			{t("hero.headline")}
+		</h1>
+		<p class="mt-6 max-w-xl text-lg text-pretty text-muted">{t("hero.lead")}</p>
+
+		<div class="mt-10 flex flex-wrap items-center gap-3">
+			<a
+				href="#cases"
+				class="rounded-lg bg-accent px-5 py-2.5 font-mono text-sm font-medium text-bg transition hover:brightness-110"
+			>
+				{t("hero.ctaCases")} ↓
+			</a>
+			<a
+				href="#contact"
+				class="rounded-lg border border-line-strong px-5 py-2.5 font-mono text-sm text-fg transition hover:border-fg"
+			>
+				{t("hero.ctaContact")}
+			</a>
+			<span class="mx-1 hidden h-5 w-px bg-line sm:block"></span>
+			<a href={site.github} target="_blank" rel="noopener" class="font-mono text-sm text-muted hover:text-fg">
+				GitHub ↗
+			</a>
+			<a href={site.linkedin} target="_blank" rel="noopener" class="font-mono text-sm text-muted hover:text-fg">
+				LinkedIn ↗
+			</a>
+		</div>
+	</div>
+
+	<Terminal hint={t("hero.terminalHint")} />
+</section>

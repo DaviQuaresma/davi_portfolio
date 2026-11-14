@@ -1,5 +1,8 @@
 ---
 import type { GetStaticPaths } from "astro";
+import Footer from "@/components/Footer.astro";
+import Header from "@/components/Header.astro";
+import Hero from "@/components/Hero.astro";
 import { type Lang, languages } from "@/i18n/ui";
 import { resolveLang } from "@/i18n/utils";
 import Base from "@/layouts/Base.astro";
@@ -13,7 +16,9 @@ const lang = resolveLang(Astro.params.lang);
 ---
 
 <Base lang={lang}>
-	<main class="container-page py-24">
-		<p class="eyebrow">WIP</p>
+	<Header lang={lang} />
+	<main>
+		<Hero lang={lang} />
 	</main>
+	<Footer lang={lang} />
 </Base>

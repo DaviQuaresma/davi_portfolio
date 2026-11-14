@@ -1,0 +1,26 @@
+---
+import { site } from "@/data/site";
+import type { Lang } from "@/i18n/ui";
+import { getTranslator } from "@/i18n/utils";
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getTranslator(lang);
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-line">
+	<div
+		class="container-page flex flex-col gap-3 py-8 font-mono text-xs text-faint sm:flex-row sm:items-center sm:justify-between"
+	>
+		<p>© {year} {site.name} · {t("footer.built")}</p>
+		<div class="flex gap-4">
+			<a href={site.repo} target="_blank" rel="noopener" class="hover:text-fg">{t("footer.source")} ↗</a>
+			<a href={site.github} target="_blank" rel="noopener" class="hover:text-fg">GitHub ↗</a>
+			<a href={site.linkedin} target="_blank" rel="noopener" class="hover:text-fg">LinkedIn ↗</a>
+		</div>
+	</div>
+</footer>
