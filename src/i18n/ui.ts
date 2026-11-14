@@ -12,6 +12,7 @@ const pt = {
 		"Engenheiro backend e full-stack. Sistemas financeiros, automação de dados, APIs e entrega contínua em produção.",
 
 	"nav.cases": "Cases",
+	"nav.experience": "Experiência",
 	"nav.stack": "Stack",
 	"nav.contact": "Contato",
 	"nav.palette": "Buscar",
@@ -80,6 +81,7 @@ const en: Record<UIKey, string> = {
 		"Backend and full-stack engineer. Financial systems, data automation, APIs and continuous delivery in production.",
 
 	"nav.cases": "Cases",
+	"nav.experience": "Experience",
 	"nav.stack": "Stack",
 	"nav.contact": "Contact",
 	"nav.palette": "Search",
