@@ -32,6 +32,9 @@ const pt = {
 	"cases.highlights": "O que foi entregue",
 	"cases.diagramHint": "Arraste os nós · fluxo simplificado",
 
+	"projects.eyebrow": "Outros projetos",
+	"projects.title": "Mais coisas que construí.",
+
 	"experience.eyebrow": "Experiência",
 	"experience.title": "Onde venho construindo.",
 	"experience.present": "atual",
@@ -100,6 +103,9 @@ const en: Record<UIKey, string> = {
 	"cases.architecture": "Architecture",
 	"cases.highlights": "What was delivered",
 	"cases.diagramHint": "Drag the nodes · simplified flow",
+
+	"projects.eyebrow": "Other projects",
+	"projects.title": "More things I've built.",
 
 	"experience.eyebrow": "Experience",
 	"experience.title": "Where I've been building.",
