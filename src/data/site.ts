@@ -10,6 +10,3 @@ export const site = {
 
 export const whatsappUrl = (text: string) =>
 	`https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(text)}`;
-
-export const sections = ["cases", "experience", "stack", "contact"] as const;
-export type SectionId = (typeof sections)[number];
