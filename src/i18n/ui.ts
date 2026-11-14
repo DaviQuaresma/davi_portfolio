@@ -31,6 +31,11 @@ const pt = {
 	"cases.highlights": "O que foi entregue",
 	"cases.diagramHint": "Arraste os nós · fluxo simplificado",
 
+	"experience.eyebrow": "Experiência",
+	"experience.title": "Onde venho construindo.",
+	"experience.present": "atual",
+	"experience.promoted": "Promoção",
+
 	"stack.eyebrow": "Stack",
 	"stack.title": "Ferramentas que uso para entregar.",
 	"stack.lead":
@@ -93,6 +98,11 @@ const en: Record<UIKey, string> = {
 	"cases.architecture": "Architecture",
 	"cases.highlights": "What was delivered",
 	"cases.diagramHint": "Drag the nodes · simplified flow",
+
+	"experience.eyebrow": "Experience",
+	"experience.title": "Where I've been building.",
+	"experience.present": "present",
+	"experience.promoted": "Promoted",
 
 	"stack.eyebrow": "Stack",
 	"stack.title": "Tools I ship with.",
