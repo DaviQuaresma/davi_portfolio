@@ -1,0 +1,51 @@
+---
+import { stack } from "@/data/stack";
+import type { Lang } from "@/i18n/ui";
+import { getTranslator } from "@/i18n/utils";
+import { getCases } from "@/lib/cases";
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getTranslator(lang);
+const cases = await getCases(lang);
+
+/** Which cases use a given technology — ties the stack back to real work. */
+const usedIn = (tech: string) =>
+	cases.filter((c) => c.data.stack.includes(tech)).map((c) => c.data.title);
+---
+
+<section id="stack" class="container-page py-24">
+	<p class="eyebrow">{t("stack.eyebrow")}</p>
+	<h2 class="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">{t("stack.title")}</h2>
+	<p class="mt-4 max-w-2xl text-muted">{t("stack.lead")}</p>
+
+	<div class="mt-12 grid gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+		{
+			stack.map((group) => (
+				<div class="bg-surface p-6" data-reveal>
+					<p class="font-mono text-xs text-faint">
+						<span class="text-accent">#</span> {t(group.label)}
+					</p>
+					<ul class="mt-5 space-y-3">
+						{group.items.map((tech) => {
+							const refs = usedIn(tech);
+							return (
+								<li class="flex items-baseline justify-between gap-3">
+									<span class="font-medium">{tech}</span>
+									{refs.length > 0 && (
+										<span class="font-mono text-[11px] text-faint" title={refs.join(" · ")}>
+											{refs.length}× case
+										</span>
+									)}
+								</li>
+							);
+						})}
+					</ul>
+				</div>
+			))
+		}
+	</div>
+</section>

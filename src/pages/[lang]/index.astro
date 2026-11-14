@@ -4,6 +4,7 @@ import Cases from "@/components/Cases.astro";
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
 import Hero from "@/components/Hero.astro";
+import Stack from "@/components/Stack.astro";
 import { type Lang, languages } from "@/i18n/ui";
 import { resolveLang } from "@/i18n/utils";
 import Base from "@/layouts/Base.astro";
@@ -21,6 +22,7 @@ const lang = resolveLang(Astro.params.lang);
 	<main>
 		<Hero lang={lang} />
 		<Cases lang={lang} />
+		<Stack lang={lang} />
 	</main>
 	<Footer lang={lang} />
 </Base>
