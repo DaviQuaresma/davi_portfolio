@@ -1,1 +1,25 @@
-<h1>WIP</h1>
+---
+// Root entry: send visitors to their preferred language. Static, so detection runs client-side;
+// crawlers and no-JS clients follow the meta refresh to the default locale.
+import { defaultLang, languages } from "@/i18n/ui";
+
+const locales = Object.keys(languages);
+---
+
+<!doctype html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="utf-8" />
+		<title>Davi Quaresma</title>
+		<meta name="robots" content="noindex" />
+		<script is:inline define:vars={{ locales, defaultLang }}>
+			const preferred = (navigator.languages || [navigator.language])
+				.map((l) => l.slice(0, 2).toLowerCase())
+				.find((l) => locales.includes(l));
+			location.replace(`/${preferred || defaultLang}/`);
+		</script>
+		<meta http-equiv="refresh" content={`0; url=/${defaultLang}/`} />
+		{locales.map((l) => <link rel="alternate" hreflang={l} href={`/${l}/`} />)}
+	</head>
+	<body></body>
+</html>

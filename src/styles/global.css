@@ -1,0 +1,91 @@
+@import "tailwindcss";
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/geist-mono";
+
+@theme {
+	--font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+	--font-mono: "Geist Mono Variable", ui-monospace, "SFMono-Regular", monospace;
+
+	--color-bg: #08090b;
+	--color-surface: #0f1114;
+	--color-surface-2: #15181c;
+	--color-line: #22262c;
+	--color-line-strong: #30353d;
+	--color-fg: #e8eaed;
+	--color-muted: #8a919b;
+	--color-faint: #5b616b;
+	--color-accent: #b6f36a;
+	--color-accent-dim: #b6f36a26;
+	--color-info: #7cc4ff;
+	--color-warn: #ffc46b;
+
+	--animate-blink: blink 1s steps(1) infinite;
+
+	@keyframes blink {
+		50% {
+			opacity: 0;
+		}
+	}
+}
+
+@layer base {
+	html {
+		color-scheme: dark;
+		scroll-behavior: smooth;
+		scroll-padding-top: 5rem;
+	}
+
+	body {
+		@apply bg-bg font-sans text-fg antialiased;
+		/* subtle engineering grid */
+		background-image:
+			linear-gradient(to right, #ffffff06 1px, transparent 1px),
+			linear-gradient(to bottom, #ffffff06 1px, transparent 1px);
+		background-size: 48px 48px;
+	}
+
+	::selection {
+		@apply bg-accent text-bg;
+	}
+
+	:focus-visible {
+		@apply outline-2 outline-offset-2 outline-accent;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
+		*,
+		*::before,
+		*::after {
+			animation-duration: 0.01ms !important;
+			transition-duration: 0.01ms !important;
+		}
+	}
+}
+
+@layer components {
+	.container-page {
+		@apply mx-auto w-full max-w-6xl px-4 sm:px-6;
+	}
+
+	.eyebrow {
+		@apply font-mono text-xs tracking-widest text-accent uppercase;
+	}
+
+	.chip {
+		@apply inline-flex items-center rounded-md border border-line bg-surface-2 px-2 py-0.5 font-mono text-xs text-muted;
+	}
+
+	/* reveal-on-scroll, toggled by a tiny IntersectionObserver in the layout */
+	[data-reveal] {
+		@apply translate-y-4 opacity-0 transition duration-700 ease-out;
+	}
+	[data-reveal].is-visible {
+		@apply translate-y-0 opacity-100;
+	}
+	.no-js [data-reveal] {
+		@apply translate-y-0 opacity-100;
+	}
+}
