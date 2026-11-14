@@ -1,8 +1,7 @@
 import { defineCollection } from "astro:content";
 import { glob } from "astro/loaders";
 import { z } from "astro/zod";
-
-export const diagramIds = ["erp", "automation", "onboarding", "cicd"] as const;
+import { diagramIds } from "./components/diagrams/types";
 
 const cases = defineCollection({
 	// One file per case per language: src/content/cases/{pt,en}/<slug>.md
