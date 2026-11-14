@@ -7,7 +7,7 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"includes": ["**", "!**/dist", "!**/.astro", "!**/.vercel", "!package-lock.json"]
+		"includes": ["**", "!**/dist", "!**/.astro", "!**/.vercel", "!package-lock.json", "!**/*.md"]
 	},
 	"formatter": {
 		"enabled": true,
