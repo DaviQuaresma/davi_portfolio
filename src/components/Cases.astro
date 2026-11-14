@@ -1,0 +1,60 @@
+---
+import type { Lang } from "@/i18n/ui";
+import { getTranslator } from "@/i18n/utils";
+import { getCases } from "@/lib/cases";
+import CaseStudy from "./CaseStudy.astro";
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getTranslator(lang);
+const cases = await getCases(lang);
+---
+
+<section id="cases" class="container-page py-24">
+	<p class="eyebrow">{t("cases.eyebrow")}</p>
+	<h2 class="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">{t("cases.title")}</h2>
+	<div class="mt-12">
+		{cases.map((entry, index) => <CaseStudy entry={entry} index={index} lang={lang} />)}
+	</div>
+</section>
+
+<script>
+	// Count-up for case metrics. The final value is already in the HTML.
+	const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+	const counters = document.querySelectorAll<HTMLElement>("[data-count]");
+
+	const animate = (el: HTMLElement) => {
+		const target = Number(el.dataset.count);
+		const decimals = Number(el.dataset.decimals ?? 0);
+		const fmt = new Intl.NumberFormat(el.dataset.locale, {
+			minimumFractionDigits: decimals,
+			maximumFractionDigits: decimals,
+		});
+		const duration = 1400;
+		const start = performance.now();
+		const tick = (now: number) => {
+			const p = Math.min((now - start) / duration, 1);
+			const eased = 1 - (1 - p) ** 3;
+			el.textContent = fmt.format(target * eased);
+			if (p < 1) requestAnimationFrame(tick);
+		};
+		requestAnimationFrame(tick);
+	};
+
+	if (!reduce) {
+		const io = new IntersectionObserver(
+			(entries) => {
+				for (const e of entries) {
+					if (!e.isIntersecting) continue;
+					animate(e.target as HTMLElement);
+					io.unobserve(e.target);
+				}
+			},
+			{ threshold: 0.6 },
+		);
+		for (const el of counters) io.observe(el);
+	}
+</script>

@@ -1,0 +1,89 @@
+---
+import { render } from "astro:content";
+import type { Lang } from "@/i18n/ui";
+import { getTranslator } from "@/i18n/utils";
+import type { Case } from "@/lib/cases";
+import ArchitectureDiagram from "./diagrams/ArchitectureDiagram";
+
+interface Props {
+	entry: Case;
+	index: number;
+	lang: Lang;
+}
+
+const { entry, index, lang } = Astro.props;
+const { data } = entry;
+const t = getTranslator(lang);
+const { Content } = await render(entry);
+const number = String(index + 1).padStart(2, "0");
+const format = (value: number, decimals: number) =>
+	value.toLocaleString(lang === "pt" ? "pt-BR" : "en-US", {
+		minimumFractionDigits: decimals,
+		maximumFractionDigits: decimals,
+	});
+---
+
+<article class="grid gap-10 border-t border-line py-16 lg:grid-cols-[1fr_1.15fr] lg:gap-14" data-reveal>
+	<div>
+		<p class="font-mono text-xs text-faint">
+			<span class="text-accent">{number}</span> / {data.focus}
+		</p>
+		<h3 class="mt-3 text-2xl font-semibold tracking-tight sm:text-3xl">{data.title}</h3>
+		<p class="mt-4 text-muted">{data.summary}</p>
+
+		{
+			data.metrics.length > 0 && (
+				<dl class="mt-8 flex flex-wrap gap-x-10 gap-y-4">
+					{data.metrics.map((m) => (
+						<div>
+							<dt class="sr-only">{m.label}</dt>
+							<dd class="font-mono text-4xl font-semibold text-accent">
+								{m.prefix}
+								<span data-count={m.value} data-decimals={m.decimals} data-locale={lang === "pt" ? "pt-BR" : "en-US"}>
+									{format(m.value, m.decimals)}
+								</span>
+								{m.suffix}
+							</dd>
+							<dd class="mt-1 max-w-48 text-sm text-muted" aria-hidden="true">
+								{m.label}
+							</dd>
+						</div>
+					))}
+				</dl>
+			)
+		}
+
+		<div class="mt-8">
+			<p class="eyebrow">{t("cases.problem")}</p>
+			<div class="mt-2 text-[15px] leading-relaxed text-muted [&_p]:mt-2"><Content /></div>
+		</div>
+
+		<div class="mt-8">
+			<p class="eyebrow">{t("cases.highlights")}</p>
+			<ul class="mt-3 space-y-2 text-[15px]">
+				{
+					data.highlights.map((h) => (
+						<li class="flex gap-3">
+							<span class="mt-[0.55em] size-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />
+							<span>{h}</span>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+
+		<ul class="mt-8 flex flex-wrap gap-2" aria-label="Stack">
+			{data.stack.map((s) => <li class="chip">{s}</li>)}
+		</ul>
+	</div>
+
+	<div class="lg:sticky lg:top-24 lg:self-start">
+		<div class="overflow-hidden rounded-xl border border-line bg-surface/80">
+			<div class="flex items-center justify-between border-b border-line px-4 py-2.5 font-mono text-[11px]">
+				<span class="text-muted">{t("cases.architecture")}</span>
+				<span class="text-faint">{t("cases.diagramHint")}</span>
+			</div>
+			<ArchitectureDiagram client:visible id={data.diagram} label={`${t("cases.architecture")}: ${data.title}`} />
+		</div>
+	</div>
+</article>

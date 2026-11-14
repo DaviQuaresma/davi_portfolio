@@ -23,7 +23,8 @@ const response = {
 	available: true,
 };
 
-const escapeHtml = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+const escapeHtml = (s: string) =>
+	s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
 /** Minimal JSON highlighter: keys, strings, booleans/numbers. */
 const highlight = (line: string) =>
