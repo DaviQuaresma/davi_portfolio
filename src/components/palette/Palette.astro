@@ -1,0 +1,59 @@
+---
+import { site, whatsappUrl } from "@/data/site";
+import type { Lang } from "@/i18n/ui";
+import { getTranslator, langPath, otherLang } from "@/i18n/utils";
+import CommandPalette, { type PaletteGroup } from "./CommandPalette";
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getTranslator(lang);
+
+const groups: PaletteGroup[] = [
+	{
+		heading: t("palette.navigate"),
+		items: [
+			{ id: "cases", label: t("nav.cases"), hint: "#cases", href: "#cases" },
+			{ id: "projects", label: t("nav.projects"), hint: "#projects", href: "#projects" },
+			{
+				id: "experience",
+				label: t("nav.experience"),
+				hint: "#experience",
+				href: "#experience",
+			},
+			{ id: "stack", label: t("nav.stack"), hint: "#stack", href: "#stack" },
+			{ id: "contact", label: t("nav.contact"), hint: "#contact", href: "#contact" },
+		],
+	},
+	{
+		heading: t("palette.links"),
+		items: [
+			{ id: "github", label: "GitHub", hint: "↗", href: site.github, external: true },
+			{ id: "linkedin", label: "LinkedIn", hint: "↗", href: site.linkedin, external: true },
+			{
+				id: "whatsapp",
+				label: "WhatsApp",
+				hint: "↗",
+				href: whatsappUrl(t("contact.whatsappText")),
+				external: true,
+			},
+			{ id: "source", label: t("footer.source"), hint: "↗", href: site.repo, external: true },
+		],
+	},
+	{
+		heading: t("palette.language"),
+		items: [
+			{
+				id: "lang",
+				label: t("palette.switchLang"),
+				hint: otherLang(lang).toUpperCase(),
+				href: langPath(otherLang(lang)),
+			},
+		],
+	},
+];
+---
+
+<CommandPalette client:idle placeholder={t("palette.placeholder")} empty={t("palette.empty")} groups={groups} />

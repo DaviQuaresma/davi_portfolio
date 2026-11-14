@@ -1,0 +1,21 @@
+# build
+dist/
+.astro/
+.vercel/
+
+# deps
+node_modules/
+
+# env
+.env
+.env.*
+!.env.example
+
+# logs
+npm-debug.log*
+
+# os / editor
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+.idea/
