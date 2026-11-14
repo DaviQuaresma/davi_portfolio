@@ -100,25 +100,21 @@ export const graphs: Record<DiagramId, { nodes: ServiceNode[]; edges: Edge[] }> 
 	},
 	cicd: {
 		nodes: [
-			node("branch", 0, 110, {
-				label: "Feature branch",
-				sub: "branching strategy",
-				kind: "client",
-			}),
-			node("pr", 220, 110, { label: "Pull Request", sub: "code review", kind: "service" }),
-			node("actions", 440, 110, {
+			node("branch", 0, 0, { label: "Feature branch", sub: "branching strategy", kind: "client" }),
+			node("pr", 250, 0, { label: "Pull Request", sub: "code review", kind: "service" }),
+			node("actions", 500, 0, {
 				label: "GitHub Actions",
 				sub: "lint · test · build",
 				kind: "worker",
 			}),
-			node("docker", 660, 110, { label: "Docker image", sub: "standard runtime", kind: "store" }),
-			node("deploy", 880, 110, { label: "Deploy", sub: "after checks pass", kind: "external" }),
+			node("docker", 500, 170, { label: "Docker image", sub: "standard runtime", kind: "store" }),
+			node("deploy", 750, 170, { label: "Deploy", sub: "after checks pass", kind: "external" }),
 		],
 		edges: [
 			edge("branch", "pr", { label: "push" }),
 			edge("pr", "actions", { label: "trigger" }),
-			edge("actions", "pr", { from: "b", to: "b", dashed: true, label: "status checks" }),
-			edge("actions", "docker", { label: "build" }),
+			edge("actions", "pr", { from: "t", to: "t", dashed: true, label: "status checks" }),
+			edge("actions", "docker", { from: "b", to: "t", label: "build" }),
 			edge("docker", "deploy", { label: "release" }),
 		],
 	},

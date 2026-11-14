@@ -6,14 +6,24 @@
 	--xy-background-color: transparent;
 }
 
-.diagram .react-flow__edge.animated path {
+.diagram .react-flow__edge-path {
+	stroke: var(--color-line-strong);
+	stroke-width: 1.5;
+}
+
+.diagram .react-flow__edge.animated .react-flow__edge-path {
 	stroke: var(--color-accent);
-	stroke-opacity: 0.55;
+	stroke-opacity: 0.8;
 }
 
 .diagram .react-flow__edge-text {
+	fill: var(--color-muted);
 	font-family: var(--font-mono);
 	font-size: 10px;
+}
+
+.diagram .react-flow__edge-textbg {
+	fill: var(--color-surface);
 }
 
 .diagram .react-flow__handle {
