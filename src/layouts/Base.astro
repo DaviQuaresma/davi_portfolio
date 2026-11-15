@@ -1,5 +1,7 @@
 ---
 import "@/styles/global.css";
+import { degrees, studyAreas } from "@/data/academic";
+import { site } from "@/data/site";
 import { type Lang, languages } from "@/i18n/ui";
 import { getTranslator, langPath } from "@/i18n/utils";
 
@@ -51,7 +53,10 @@ const ogImage = new URL("/og.png", Astro.site);
 				name: "Davi Quaresma",
 				jobTitle: "Backend & Full-stack Engineer",
 				url: Astro.site?.toString(),
-				sameAs: ["https://github.com/DaviQuaresma", "https://www.linkedin.com/in/davi-quaresma/"],
+				sameAs: [site.github, site.linkedin],
+				alumniOf: degrees.map((d) => ({ "@type": "CollegeOrUniversity", name: d.institution })),
+				knowsLanguage: ["pt-BR", "en"],
+				knowsAbout: studyAreas.map((a) => a.en),
 			})}
 		/>
 	</head>
