@@ -1,7 +1,8 @@
 ---
 import { experience } from "@/data/experience";
-import { type Lang, languages } from "@/i18n/ui";
+import type { Lang } from "@/i18n/ui";
 import { getTranslator } from "@/i18n/utils";
+import { formatMonth } from "@/lib/dates";
 
 interface Props {
 	lang: Lang;
@@ -9,12 +10,7 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = getTranslator(lang);
-const monthFmt = new Intl.DateTimeFormat(languages[lang].htmlLang, {
-	month: "short",
-	year: "numeric",
-	timeZone: "UTC",
-});
-const fmt = (ym: string) => monthFmt.format(new Date(`${ym}-01T00:00:00Z`)).replace(".", "");
+const fmt = (ym: string) => formatMonth(lang, ym);
 const period = (start: string, end?: string) =>
 	`${fmt(start)} — ${end ? fmt(end) : t("experience.present")}`;
 ---
