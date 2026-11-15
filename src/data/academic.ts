@@ -34,7 +34,7 @@ export interface Certification {
 }
 
 export const nextStep = {
-	program: { pt: "Mestrado em Informática", en: "Master's in Computer Science" },
+	program: { pt: "Mestrado em Informática", en: "Master's in Informatics" },
 	institution: "PPGINF · PUC Minas",
 	focus: {
 		pt: "Inteligência Artificial & Machine Learning",

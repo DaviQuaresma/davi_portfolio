@@ -41,6 +41,18 @@ const pt = {
 	"experience.present": "atual",
 	"experience.promoted": "Promoção",
 
+	"academic.eyebrow": "Acadêmico",
+	"academic.title": "Formação contínua, rumo à pesquisa.",
+	"academic.nextStep": "Próximo passo",
+	"academic.inProgress": "Em andamento",
+	"academic.completed": "Concluído",
+	"academic.modules": "Módulos concluídos",
+	"academic.curriculum": "Ver grade curricular",
+	"academic.activities": "Projetos & atividades",
+	"academic.studyAreas": "Áreas de estudo",
+	"academic.certifications": "Certificações",
+	"academic.languages": "Idiomas",
+
 	"stack.eyebrow": "Stack",
 	"stack.title": "Ferramentas que uso para entregar.",
 	"stack.lead":
@@ -113,6 +125,18 @@ const en: Record<UIKey, string> = {
 	"experience.title": "Where I've been building.",
 	"experience.present": "present",
 	"experience.promoted": "Promoted",
+
+	"academic.eyebrow": "Academic",
+	"academic.title": "Continuous learning, heading into research.",
+	"academic.nextStep": "Next step",
+	"academic.inProgress": "In progress",
+	"academic.completed": "Completed",
+	"academic.modules": "Modules completed",
+	"academic.curriculum": "View curriculum",
+	"academic.activities": "Projects & activities",
+	"academic.studyAreas": "Study areas",
+	"academic.certifications": "Certifications",
+	"academic.languages": "Languages",
 
 	"stack.eyebrow": "Stack",
 	"stack.title": "Tools I ship with.",

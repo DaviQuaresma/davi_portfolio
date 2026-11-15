@@ -1,0 +1,209 @@
+---
+import { certifications, degrees, nextStep, spokenLanguages, studyAreas } from "@/data/academic";
+import type { Lang } from "@/i18n/ui";
+import { getTranslator } from "@/i18n/utils";
+import { currentMonth, formatMonth } from "@/lib/dates";
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getTranslator(lang);
+const fmt = (ym: string) => formatMonth(lang, ym);
+const now = currentMonth();
+
+type ModuleStatus = "done" | "current" | "next";
+const moduleStatus = (date: string): ModuleStatus =>
+	date < now ? "done" : date === now ? "current" : "next";
+const statusIcon: Record<ModuleStatus, string> = { done: "✓", current: "●", next: "○" };
+---
+
+<section id="academic" class="container-page py-24">
+	<p class="eyebrow">{t("academic.eyebrow")}</p>
+	<h2 class="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">{t("academic.title")}</h2>
+
+	<!-- Next step: master's application -->
+	<div
+		class="relative mt-12 overflow-hidden rounded-xl border border-accent/40 bg-accent-dim/40 p-6 sm:p-8"
+		data-reveal
+	>
+		<div
+			class="pointer-events-none absolute -top-24 -right-24 size-64 rounded-full bg-accent/10 blur-3xl"
+			aria-hidden="true"
+		>
+		</div>
+		<p class="flex items-center gap-2 font-mono text-xs text-accent uppercase tracking-widest">
+			<span class="relative flex size-2">
+				<span class="absolute inline-flex size-full animate-ping rounded-full bg-accent opacity-60"></span>
+				<span class="relative inline-flex size-2 rounded-full bg-accent"></span>
+			</span>
+			{t("academic.nextStep")}
+		</p>
+		<h3 class="mt-4 text-xl font-semibold sm:text-2xl">
+			{nextStep.program[lang]} <span class="text-muted">· {nextStep.institution}</span>
+		</h3>
+		<p class="mt-2 font-mono text-sm text-fg">{nextStep.focus[lang]}</p>
+		<p class="mt-3 text-sm text-muted">{nextStep.status[lang]}</p>
+	</div>
+
+	<div class="mt-4 grid gap-4 lg:grid-cols-[1.5fr_1fr]">
+		<!-- Degrees -->
+		<ol class="space-y-4">
+			{
+				degrees.map((d) => {
+					const done = d.modules?.filter((m) => moduleStatus(m.date) === "done").length ?? 0;
+					const total = d.modules?.length ?? 0;
+					const ongoing = d.end >= now;
+					return (
+						<li class="rounded-xl border border-line bg-surface/70 p-6 sm:p-8" data-reveal>
+							<div class="flex flex-wrap items-start justify-between gap-3">
+								<div>
+									<h3 class="font-semibold">{d.institution}</h3>
+									<p class="mt-1 text-muted">{d.degree[lang]}</p>
+								</div>
+								<span
+									class:list={[
+										"rounded px-1.5 py-0.5 font-mono text-[10px] uppercase",
+										ongoing ? "bg-accent-dim text-accent" : "bg-surface-2 text-muted",
+									]}
+								>
+									{ongoing ? t("academic.inProgress") : t("academic.completed")}
+								</span>
+							</div>
+							<p class="mt-2 font-mono text-xs text-faint">
+								{fmt(d.start)} — {fmt(d.end)}
+								{d.grade && <span> · {d.grade[lang]}</span>}
+							</p>
+
+							{d.modules && (
+								<div class="mt-6">
+									<div class="flex items-center justify-between font-mono text-xs text-muted">
+										<span>{t("academic.modules")}</span>
+										<span>
+											<span class="text-accent">{done}</span>/{total}
+										</span>
+									</div>
+									<div
+										class="mt-2 h-1.5 overflow-hidden rounded-full bg-surface-2"
+										role="progressbar"
+										aria-valuemin={0}
+										aria-valuemax={total}
+										aria-valuenow={done}
+										aria-label={t("academic.modules")}
+									>
+										<div class="h-full rounded-full bg-accent" style={`width: ${(done / total) * 100}%`} />
+									</div>
+
+									<details class="group mt-4">
+										<summary class="cursor-pointer list-none font-mono text-xs text-muted transition-colors hover:text-fg">
+											<span class="inline-block transition-transform group-open:rotate-90">›</span>{" "}
+											{t("academic.curriculum")}
+										</summary>
+										<ul class="mt-4 space-y-2 text-sm">
+											{d.modules.map((m) => {
+												const s = moduleStatus(m.date);
+												return (
+													<li class="flex items-baseline gap-2.5">
+														<span
+															class:list={[
+																"w-3 shrink-0 font-mono text-xs",
+																s === "done" && "text-accent",
+																s === "current" && "text-warn",
+																s === "next" && "text-faint",
+															]}
+															aria-hidden="true"
+														>
+															{statusIcon[s]}
+														</span>
+														<span class:list={["flex-1", s === "next" ? "text-faint" : "text-muted"]}>
+															{m.name[lang]}
+														</span>
+														<span class="font-mono text-[11px] text-faint">{fmt(m.date)}</span>
+													</li>
+												);
+											})}
+										</ul>
+									</details>
+								</div>
+							)}
+
+							{d.activities && (
+								<div class="mt-6">
+									<p class="eyebrow">{t("academic.activities")}</p>
+									<ul class="mt-3 space-y-3">
+										{d.activities.map((a) => (
+											<li>
+												<p class="text-sm font-medium">
+													{a.href ? (
+														<a href={a.href} target="_blank" rel="noopener" class="hover:text-accent">
+															{a.title[lang]} ↗
+														</a>
+													) : (
+														a.title[lang]
+													)}
+												</p>
+												<p class="mt-0.5 text-sm text-muted">{a.detail[lang]}</p>
+											</li>
+										))}
+									</ul>
+								</div>
+							)}
+						</li>
+					);
+				})
+			}
+		</ol>
+
+		<!-- Sidebar: study areas, certifications, languages -->
+		<aside class="space-y-4">
+			<div class="rounded-xl border border-line bg-surface/70 p-6" data-reveal>
+				<p class="font-mono text-xs text-faint"><span class="text-accent">#</span> {t("academic.studyAreas")}</p>
+				<ul class="mt-4 space-y-2.5 text-sm">
+					{
+						studyAreas.map((area, i) => (
+							<li class="flex gap-3">
+								<span class="font-mono text-xs text-faint">{String(i + 1).padStart(2, "0")}</span>
+								<span class:list={[i === 0 && "text-accent"]}>{area[lang]}</span>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+
+			<div class="rounded-xl border border-line bg-surface/70 p-6" data-reveal>
+				<p class="font-mono text-xs text-faint">
+					<span class="text-accent">#</span> {t("academic.certifications")}
+				</p>
+				<ul class="mt-4 space-y-3 text-sm">
+					{
+						certifications.map((c) => (
+							<li>
+								<p class="font-medium">{c.name}</p>
+								<p class="mt-0.5 font-mono text-[11px] text-faint">
+									{c.issuer} · {fmt(c.issued)}
+									{c.credentialId && <span> · ID {c.credentialId}</span>}
+								</p>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+
+			<div class="rounded-xl border border-line bg-surface/70 p-6" data-reveal>
+				<p class="font-mono text-xs text-faint"><span class="text-accent">#</span> {t("academic.languages")}</p>
+				<ul class="mt-4 space-y-2 text-sm">
+					{
+						spokenLanguages.map((l) => (
+							<li class="flex items-baseline justify-between gap-3">
+								<span>{l.name[lang]}</span>
+								<span class="font-mono text-[11px] text-faint">{l.level[lang]}</span>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+
+		</aside>
+	</div>
+</section>
