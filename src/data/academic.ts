@@ -33,19 +33,6 @@ export interface Certification {
 	credentialId?: string;
 }
 
-export const nextStep = {
-	program: { pt: "Mestrado em Informática", en: "Master's in Informatics" },
-	institution: "PPGINF · PUC Minas",
-	focus: {
-		pt: "Inteligência Artificial & Machine Learning",
-		en: "Artificial Intelligence & Machine Learning",
-	},
-	status: {
-		pt: "Preparando o ingresso — aguardando a abertura das inscrições.",
-		en: "Preparing my application — waiting for enrollment to open.",
-	},
-};
-
 export const degrees: Degree[] = [
 	{
 		institution: "PUC Minas",

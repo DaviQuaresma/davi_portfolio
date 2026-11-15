@@ -43,8 +43,7 @@ const pt = {
 	"experience.promoted": "Promoção",
 
 	"academic.eyebrow": "Acadêmico",
-	"academic.title": "Formação contínua, rumo à pesquisa.",
-	"academic.nextStep": "Próximo passo",
+	"academic.title": "Base sólida, aprendizado contínuo.",
 	"academic.inProgress": "Em andamento",
 	"academic.completed": "Concluído",
 	"academic.modules": "Módulos concluídos",
@@ -129,8 +128,7 @@ const en: Record<UIKey, string> = {
 	"experience.promoted": "Promoted",
 
 	"academic.eyebrow": "Academic",
-	"academic.title": "Continuous learning, heading into research.",
-	"academic.nextStep": "Next step",
+	"academic.title": "Solid foundations, continuous learning.",
 	"academic.inProgress": "In progress",
 	"academic.completed": "Completed",
 	"academic.modules": "Modules completed",
