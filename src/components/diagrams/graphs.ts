@@ -58,8 +58,8 @@ export const graphs: Record<DiagramId, { nodes: ServiceNode[]; edges: Edge[] }> 
 		nodes: [
 			node("cron", 0, 120, { label: "Cron job", sub: "scheduled on server", kind: "trigger" }),
 			node("sources", 240, 0, {
-				label: "Institutional sources",
-				sub: "web portals",
+				label: "ProConsumidor",
+				sub: "web portal",
 				kind: "external",
 			}),
 			node("collector", 240, 120, {
@@ -69,14 +69,16 @@ export const graphs: Record<DiagramId, { nodes: ServiceNode[]; edges: Edge[] }> 
 			}),
 			node("retry", 240, 250, { label: "Tenacity", sub: "retry · backoff", kind: "service" }),
 			node("etl", 490, 120, { label: "Pandas", sub: "clean · normalize", kind: "service" }),
-			node("pg", 730, 120, { label: "PostgreSQL", sub: "curated data", kind: "store" }),
+			node("crm", 730, 30, { label: "CRM", sub: "internal", kind: "store" }),
+			node("report", 730, 210, { label: "Excel report", sub: "sent by email", kind: "service" }),
 		],
 		edges: [
 			edge("cron", "collector", { label: "trigger" }),
 			edge("collector", "sources", { from: "t", to: "b", label: "scrape" }),
 			edge("collector", "retry", { from: "b", to: "t", dashed: true, label: "on failure" }),
 			edge("collector", "etl", { label: "raw rows" }),
-			edge("etl", "pg", { label: "upsert" }),
+			edge("etl", "crm", { label: "sync" }),
+			edge("etl", "report", { label: "summary" }),
 		],
 	},
 	onboarding: {

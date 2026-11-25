@@ -8,6 +8,14 @@ export interface Role {
 	start: string;
 	/** `YYYY-MM`; omitted for the current role. */
 	end?: string;
+	/** Role-level achievements, shown before any projects. */
+	bullets?: Localized[];
+	/** Achievements grouped by project, for roles with distinct deliverables. */
+	projects?: Project[];
+}
+
+export interface Project {
+	name: Localized;
 	bullets: Localized[];
 }
 
@@ -23,23 +31,32 @@ export const experience: Job[] = [
 	{
 		company: "VPPR — Consultoria Jurídica Empresarial",
 		location: { pt: "Belo Horizonte, MG · Remoto", en: "Belo Horizonte, Brazil · Remote" },
-		tags: ["PHP", "Laravel", "Python", "Docker", "GitHub Actions"],
+		tags: ["PHP", "Laravel", "Python", "Pandas", "MySQL", "Docker", "GitHub Actions"],
 		roles: [
 			{
 				title: { pt: "Engenheiro de Software Pleno", en: "Mid-level Software Engineer" },
 				start: "2026-09",
-				bullets: [
+				projects: [
 					{
-						pt: "Projetei e desenvolvi de forma independente o backend e o frontend de um ERP financeiro, definindo arquitetura, decisões técnicas e fluxos de negócio.",
-						en: "Independently designed and built a financial ERP backend and frontend, defining its architecture, technical decisions and core business workflows.",
-					},
-					{
-						pt: "Soluções para operações financeiras complexas: recorrências, rateios, orçamentos e processamento assíncrono.",
-						en: "Engineered complex financial operations: recurring transactions, cost allocations, budgets and asynchronous processing.",
-					},
-					{
-						pt: "Ciclo técnico completo — do desenho da arquitetura e implementação assistida por IA ao troubleshooting e deploy em produção.",
-						en: "Led the full technical lifecycle — from architecture and AI-assisted implementation to troubleshooting and production deployment.",
+						name: { pt: "ERP Financeiro", en: "Financial ERP" },
+						bullets: [
+							{
+								pt: "Projetei e desenvolvi de forma independente um ERP financeiro modular, definindo arquitetura em camadas, modelos de domínio e fluxos de negócio — transações, recorrências, rateios, orçamentos anuais, centros de custo e distribuição entre sócios.",
+								en: "Independently designed and developed a modular financial ERP, defining its layered architecture, domain models and core business workflows, covering financial transactions, recurring operations, cost allocations, annual budgets, cost centers and partner distributions.",
+							},
+							{
+								pt: "Projetei um subsistema extensível de relatórios e exportações com os padrões Strategy, Registry e Builder, suportando relatórios configuráveis, envio agendado por e-mail e geração sob demanda em PDF/Excel.",
+								en: "Designed an extensible reporting and export subsystem using Strategy, Registry and Builder patterns, supporting configurable reports, scheduled email delivery and on-demand PDF/Excel generation.",
+							},
+							{
+								pt: "Arquitetei o processamento assíncrono com filas e workers dedicados para relatórios e exportações, jobs agendados, controles de idempotência, estratégias de retry e status em tempo real via WebSockets.",
+								en: "Architected asynchronous processing with dedicated queues and workers for reports and exports, scheduled jobs, idempotency controls, retry strategies and real-time status updates through WebSockets.",
+							},
+							{
+								pt: "Apliquei práticas de confiabilidade e manutenibilidade: cálculos monetários com inteiros, histórico de auditoria, sincronização de dados controlada, testes automatizados, análise estática com Larastan e CI com GitHub Actions.",
+								en: "Implemented reliability and maintainability practices including integer-based monetary calculations, audit history, controlled data synchronization, automated tests, static analysis with Larastan and GitHub Actions CI pipelines.",
+							},
+						],
 					},
 				],
 			},
@@ -47,15 +64,52 @@ export const experience: Job[] = [
 				title: { pt: "Engenheiro de Software Júnior", en: "Junior Software Engineer" },
 				start: "2026-04",
 				end: "2026-09",
+				projects: [
+					{
+						name: { pt: "Automação ProConsumidor", en: "ProConsumidor Automation" },
+						bullets: [
+							{
+								pt: "Desenvolvi uma automação em Python integrando o ProConsumidor a um CRM interno, substituindo um processo manual diário de mais de 2 horas por um fluxo autônomo concluído em menos de 2 minutos — redução de mais de 98% e mais de 500 horas de capacidade operacional liberadas por ano.",
+								en: "Developed a Python automation integrating ProConsumidor with an internal CRM, replacing a manual daily process that required over 2 hours with an unattended workflow completed in under 2 minutes — a reduction of over 98% and more than 500 hours of operational capacity freed annually.",
+							},
+							{
+								pt: "Implementei automação de navegador, processamento de dados e envio automático de relatórios em Excel por e-mail, permitindo que a equipe focasse nas exceções e eliminando a necessidade de uma contratação adicional planejada.",
+								en: "Implemented browser automation, data processing and automated Excel report delivery by email, allowing the team to focus on exceptions instead of repetitive data entry and eliminating the need for a planned additional hire.",
+							},
+						],
+					},
+					{
+						name: { pt: "ETL e BI de Dados Jurídicos", en: "Legal Data ETL & BI Automation" },
+						bullets: [
+							{
+								pt: "Projetei e desenvolvi um pipeline ETL ponta a ponta em Python para extrair dados do EasyJur, plataforma de gestão jurídica sem API pública, automatizando a extração via navegador de quatro relatórios e substituindo a consolidação manual em planilhas.",
+								en: "Designed and developed an end-to-end Python ETL pipeline to extract data from EasyJur, a legal management platform without a public API, automating browser-based extraction of four reports and replacing manual spreadsheet consolidation.",
+							},
+							{
+								pt: "Implementei transformações com pandas para calcular indicadores jurídicos e financeiros, tratando regras de negócio complexas, como valores de causa duplicados entre múltiplos pedidos, para preservar a precisão dos relatórios.",
+								en: "Implemented data transformations with pandas to calculate legal and financial indicators, handling complex business rules such as duplicate claim values across multiple requests to preserve reporting accuracy.",
+							},
+							{
+								pt: "Construí uma ingestão confiável em MySQL com processamento em lote, transações e upserts idempotentes, implantando o pipeline com Docker, execução agendada, retries com backoff exponencial e logs estruturados.",
+								en: "Built reliable MySQL ingestion with batch processing, transactions and idempotent upserts, deploying the pipeline with Docker, scheduled execution, retries with exponential backoff and structured logging.",
+							},
+						],
+					},
+					{
+						name: { pt: "Plataforma de Onboarding de Clientes", en: "Client Onboarding Platform" },
+						bullets: [
+							{
+								pt: "Desenvolvi uma plataforma full-stack que centraliza o onboarding de clientes, antes espalhado entre planilhas e conversas, com fluxo de revisão, correção e aprovação de cadastros e rastreamento de status de ponta a ponta.",
+								en: "Built a full-stack platform that centralizes client onboarding, previously scattered across spreadsheets and chat, with a review, correction and approval workflow and end-to-end status tracking for every registration.",
+							},
+							{
+								pt: "Implementei comunicação cliente-analista dentro da plataforma e gestão de documentos em object storage, garantindo histórico e rastreabilidade de cada etapa.",
+								en: "Implemented in-platform client–analyst communication and document management on object storage, ensuring history and traceability at every step.",
+							},
+						],
+					},
+				],
 				bullets: [
-					{
-						pt: "Plataforma centralizada de onboarding de clientes, unificando processos antes fragmentados.",
-						en: "Built a centralized client onboarding platform, unifying previously fragmented processes.",
-					},
-					{
-						pt: "Automação de navegador em Python para coleta de dados institucionais, reduzindo 83,67% do tempo de execução.",
-						en: "Python browser automation for institutional data collection, cutting recorded execution time by 83.67%.",
-					},
 					{
 						pt: "Implantei do zero práticas de entrega: governança Git, branches, Pull Requests, Docker e CI/CD com GitHub Actions.",
 						en: "Established delivery practices from scratch: Git governance, branching, Pull Requests, Docker and CI/CD with GitHub Actions.",

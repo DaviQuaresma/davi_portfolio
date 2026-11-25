@@ -1,23 +1,31 @@
 ---
-title: Institutional Data Automation
+title: ProConsumidor Automation
 order: 2
 focus: Resolução de problemas & impacto mensurável
-summary: Automação da coleta e do processamento de dados institucionais, executada de forma agendada e resiliente a falhas.
+summary: Automação que integra o ProConsumidor a um CRM interno, substituindo um processo manual diário de mais de 2 horas por um fluxo autônomo de menos de 2 minutos.
 metrics:
-  - value: 83.67
+  - value: 98
     prefix: "−"
     suffix: "%"
-    decimals: 2
-    label: no tempo de execução, medido pelo setor
+    label: no tempo do processo diário
+  - value: 500
+    prefix: "+"
+    suffix: "h"
+    label: de capacidade operacional liberadas por ano
+  - value: 2
+    prefix: "<"
+    suffix: " min"
+    label: por execução, antes mais de 2 horas
 highlights:
-  - Coleta automatizada com navegação headless
+  - Integração do ProConsumidor com o CRM interno via navegação headless
   - Processamento e normalização dos dados antes da persistência
-  - Execução agendada em servidor
-  - Tentativas de recuperação e tratamento de falhas
-stack: [Python, Playwright, Pandas, Tenacity, PostgreSQL]
+  - Relatório em Excel enviado automaticamente por e-mail
+  - Execução agendada e autônoma, com tratamento de falhas e retentativas
+stack: [Python, Playwright, Pandas, Tenacity]
 diagram: automation
 ---
 
-A coleta de dados institucionais era feita manualmente, consumindo horas do setor e sujeita a erro humano.
-Automatizei o fluxo completo — coleta, tratamento e armazenamento — com execução agendada e retentativas para
-lidar com instabilidades das fontes externas.
+O lançamento dos dados do ProConsumidor no CRM era feito à mão todos os dias, consumindo mais de 2 horas do
+setor e sujeito a erro humano. Automatizei o fluxo completo — coleta, tratamento, integração com o CRM e envio do
+relatório em Excel por e-mail — com execução agendada e retentativas para lidar com instabilidades da fonte externa.
+A equipe passou a atuar só nas exceções, e a contratação adicional que estava planejada deixou de ser necessária.
