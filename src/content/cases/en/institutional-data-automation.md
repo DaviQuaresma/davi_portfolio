@@ -1,22 +1,31 @@
 ---
-title: Institutional Data Automation
+title: ProConsumidor Automation
 order: 2
 focus: Problem-solving & measurable impact
-summary: Automated collection and processing of institutional data, running on a schedule and resilient to failures.
+summary: An automation integrating ProConsumidor with an internal CRM, replacing a 2+ hour manual daily process with an unattended workflow that finishes in under 2 minutes.
 metrics:
-  - value: 83.67
+  - value: 98
     prefix: "−"
     suffix: "%"
-    decimals: 2
-    label: execution time, as measured by the team
+    label: daily process time
+  - value: 500
+    prefix: "+"
+    suffix: "h"
+    label: of operational capacity freed per year
+  - value: 2
+    prefix: "<"
+    suffix: " min"
+    label: per run, down from over 2 hours
 highlights:
-  - Automated collection through headless browsing
+  - ProConsumidor-to-CRM integration through headless browsing
   - Data processing and normalization before persistence
-  - Scheduled server-side execution
-  - Retry strategies and failure handling
+  - Excel report delivered automatically by email
+  - Scheduled, unattended runs with failure handling and retries
 stack: [Python, Playwright, Pandas, Tenacity, PostgreSQL]
 diagram: automation
 ---
 
-Institutional data was collected by hand, costing the team hours and prone to human error. I automated the whole
-flow — collection, processing and storage — with scheduled runs and retries to cope with unstable external sources.
+ProConsumidor data was entered into the CRM by hand every day, costing the team over 2 hours and prone to
+human error. I automated the whole flow — collection, processing, CRM integration and Excel report delivery by
+email — with scheduled runs and retries to cope with an unstable external source. The team now only handles
+exceptions, and a planned additional hire was no longer needed.
