@@ -21,7 +21,7 @@ highlights:
   - Processamento e normalização dos dados antes da persistência
   - Relatório em Excel enviado automaticamente por e-mail
   - Execução agendada e autônoma, com tratamento de falhas e retentativas
-stack: [Python, Playwright, Pandas, Tenacity, PostgreSQL]
+stack: [Python, Playwright, Pandas, Tenacity]
 diagram: automation
 ---
 

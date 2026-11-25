@@ -21,7 +21,7 @@ highlights:
   - Data processing and normalization before persistence
   - Excel report delivered automatically by email
   - Scheduled, unattended runs with failure handling and retries
-stack: [Python, Playwright, Pandas, Tenacity, PostgreSQL]
+stack: [Python, Playwright, Pandas, Tenacity]
 diagram: automation
 ---
 
