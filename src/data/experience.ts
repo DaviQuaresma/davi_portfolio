@@ -8,6 +8,14 @@ export interface Role {
 	start: string;
 	/** `YYYY-MM`; omitted for the current role. */
 	end?: string;
+	/** Role-level achievements, shown before any projects. */
+	bullets?: Localized[];
+	/** Achievements grouped by project, for roles with distinct deliverables. */
+	projects?: Project[];
+}
+
+export interface Project {
+	name: Localized;
 	bullets: Localized[];
 }
 

@@ -1,0 +1,22 @@
+---
+import type { Lang } from "@/i18n/ui";
+
+interface Props {
+	items: Record<Lang, string>[];
+	lang: Lang;
+	class?: string;
+}
+
+const { items, lang, class: className } = Astro.props;
+---
+
+<ul class:list={["space-y-1.5 text-[15px] text-muted", className]}>
+	{
+		items.map((b) => (
+			<li class="flex gap-3">
+				<span class="mt-[0.6em] h-px w-2.5 shrink-0 bg-faint" aria-hidden="true" />
+				<span>{b[lang]}</span>
+			</li>
+		))
+	}
+</ul>
